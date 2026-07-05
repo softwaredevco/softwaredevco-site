@@ -1,0 +1,197 @@
+/* ============================================================
+   Loader — the logo "charges up" from bottom to top,
+   driven by js/main.js, then the whole screen lifts away.
+   ============================================================ */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.9s cubic-bezier(0.77, 0, 0.18, 1);
+  will-change: transform;
+}
+
+/* Exit: the loader wipes upward to reveal the page */
+.loader.is-done {
+  transform: translateY(-100%);
+}
+
+.loader.is-hidden {
+  display: none;
+}
+
+.loader-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: transform 0.9s cubic-bezier(0.77, 0, 0.18, 1), opacity 0.5s ease;
+}
+
+/* Content drifts down slightly as the panel lifts — adds depth */
+.loader.is-done .loader-center {
+  transform: translateY(60px);
+  opacity: 0;
+}
+
+/* ============ LOGO ============ */
+
+.logo-loader {
+  position: relative;
+  width: clamp(150px, 18vw, 240px);
+  aspect-ratio: 237 / 180;
+}
+
+.logo-loader img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Dark base logo — the "empty battery" */
+.logo-dim {
+  opacity: 0.16;
+  filter: brightness(0.5) grayscale(1);
+}
+
+/* Bright logo, revealed bottom-to-top via clip-path set from JS */
+.logo-fill {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  clip-path: inset(100% 0 0 0);
+  will-change: clip-path;
+}
+
+.logo-bright {
+  filter:
+    brightness(1.15)
+    contrast(1.08)
+    drop-shadow(0 0 12px rgba(255, 255, 255, 0.22))
+    drop-shadow(0 22px 32px rgba(0, 0, 0, 0.9));
+}
+
+/* Fully charged: a quick bright pulse before the reveal */
+.loader.is-charged .logo-bright {
+  animation: chargedPulse 0.55s ease;
+}
+
+@keyframes chargedPulse {
+  0% {
+    filter:
+      brightness(1.15)
+      drop-shadow(0 0 12px rgba(255, 255, 255, 0.22));
+  }
+
+  40% {
+    filter:
+      brightness(1.7)
+      drop-shadow(0 0 34px rgba(255, 255, 255, 0.65));
+  }
+
+  100% {
+    filter:
+      brightness(1.15)
+      drop-shadow(0 0 12px rgba(255, 255, 255, 0.22));
+  }
+}
+
+/* Thin light line riding the top of the charge level (JS-positioned) */
+.charge-light {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.95),
+    transparent
+  );
+  box-shadow:
+    0 0 16px rgba(255, 255, 255, 0.9),
+    0 0 34px rgba(255, 255, 255, 0.45);
+  opacity: 0;
+  will-change: bottom, opacity;
+}
+
+/* Soft glow under the logo, grows with charge (JS sets --charge) */
+.logo-loader::after {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: -10px;
+  height: 18px;
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 255, 255, 0.25),
+    transparent 70%
+  );
+  filter: blur(12px);
+  opacity: calc(var(--charge, 0) * 0.6);
+}
+
+/* ============ LOADING TEXT + COUNTER ============ */
+
+.loader-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  margin-top: 40px;
+}
+
+.loading-text {
+  font-family: var(--font-mono, monospace);
+  font-size: 9px;
+  letter-spacing: 8px;
+  color: rgba(255, 255, 255, 0.45);
+  animation: loadingPulse 2s ease-in-out infinite;
+}
+
+.loading-count {
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.85);
+  min-width: 3ch;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes loadingPulse {
+  0%, 100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 0.85;
+  }
+}
+
+/* ============ REDUCED MOTION ============ */
+
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    transition: opacity 0.3s ease;
+  }
+
+  .loader.is-done {
+    transform: none;
+    opacity: 0;
+  }
+
+  .loading-text {
+    animation: none;
+  }
+}
