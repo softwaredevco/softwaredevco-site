@@ -16,6 +16,13 @@
     content="SoftwareDevCo builds modern software, automation and digital solutions."
   >
 
+  <!-- Load the logo as early as possible -->
+  <link
+    rel="preload"
+    href="./assets/logo.png"
+    as="image"
+  >
+
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com"
@@ -32,22 +39,43 @@
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/loader.css">
-  <link rel="stylesheet" href="./css/navigation.css">
-  <link rel="stylesheet" href="./css/responsive.css">
+  <link
+    rel="stylesheet"
+    href="./css/style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./css/loader.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./css/navigation.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./css/responsive.css"
+  >
 </head>
 
 <body class="is-loading">
 
-  <!-- Logo loading screen -->
+  <!-- ========================================================
+       LOADING SCREEN
+       ======================================================== -->
+
   <div
     class="site-loader"
     id="loader"
     aria-label="Loading SoftwareDevCo"
   >
 
-    <div class="loader-logo-shell">
+    <div
+      class="loader-logo-shell"
+      id="loaderLogo"
+    >
 
       <!-- Dark, unpowered logo -->
       <img
@@ -57,7 +85,7 @@
         aria-hidden="true"
       >
 
-      <!-- Metallic logo filling internally -->
+      <!-- Metallic logo filling from bottom to top -->
       <div class="loader-fill">
 
         <img
@@ -68,7 +96,7 @@
 
       </div>
 
-      <!-- Internal metallic highlight -->
+      <!-- Internal metallic movement -->
       <div
         class="loader-energy"
         aria-hidden="true"
@@ -79,8 +107,18 @@
   </div>
 
 
-  <!-- Main website -->
-  <main class="site" id="site">
+  <!-- ========================================================
+       MAIN WEBSITE
+       ======================================================== -->
+
+  <main
+    class="site"
+    id="site"
+  >
+
+    <!-- ======================================================
+         NAVIGATION
+         ====================================================== -->
 
     <header class="top-nav">
 
@@ -88,9 +126,24 @@
         class="nav-left"
         aria-label="Primary navigation"
       >
-        <a href="#company">Our Company</a>
-        <a href="#expertise">Expertise</a>
+
+        <a href="#company">
+          Our Company
+        </a>
+
+        <a href="#expertise">
+          Expertise
+        </a>
+
       </nav>
+
+
+      <!--
+        This is the final destination for the loader logo.
+
+        JavaScript measures this image and moves the loader logo
+        into exactly the same position and size.
+      -->
 
       <a
         href="#company"
@@ -98,16 +151,20 @@
         id="navLogo"
         aria-label="SoftwareDevCo home"
       >
+
         <img
           src="./assets/logo.png"
           alt="SoftwareDevCo"
         >
+
       </a>
+
 
       <nav
         class="nav-right"
         aria-label="Project navigation"
       >
+
         <a
           href="#start-project"
           class="start-project"
@@ -115,10 +172,15 @@
           Start a Project
           <span aria-hidden="true">↗</span>
         </a>
+
       </nav>
 
     </header>
 
+
+    <!-- ======================================================
+         HERO
+         ====================================================== -->
 
     <section
       class="hero"
@@ -140,15 +202,22 @@
         aria-hidden="true"
       ></div>
 
+
       <div class="hero-inner">
 
         <h1
           class="hero-title reveal"
           style="--d: 0.2s;"
         >
-          <span class="line">Engineering</span>
-          <span class="line">what comes next.</span>
+          <span class="line">
+            Engineering
+          </span>
+
+          <span class="line">
+            what comes next.
+          </span>
         </h1>
+
 
         <p
           class="hero-sub reveal"
@@ -157,6 +226,7 @@
           Modern software, automation and digital solutions engineered
           for organisations ready to move forward.
         </p>
+
 
         <div
           class="hero-actions reveal"
@@ -171,6 +241,7 @@
             <span aria-hidden="true">↗</span>
           </a>
 
+
           <a
             href="#expertise"
             class="btn-ghost"
@@ -182,22 +253,22 @@
 
       </div>
 
+
       <div
         class="hero-footer reveal"
         style="--d: 0.65s;"
       >
-<!--        <span class="mono-tag">-->
-<!--          Software Development-->
-<!--        </span>-->
 
         <span class="mono-tag">
           We Build What's Next
         </span>
+
       </div>
 
     </section>
 
   </main>
+
 
   <script src="./js/main.js"></script>
 
