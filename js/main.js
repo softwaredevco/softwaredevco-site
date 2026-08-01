@@ -15,10 +15,10 @@ const navLogo = document.getElementById("navLogo");
    These timings match the loader.css animations.
    ============================================================ */
 
-const LOGO_CHARGE_DURATION = 4200;
-const CHARGED_LOGO_PAUSE = 550;
-const LOGO_MOVE_DURATION = 1200;
-const LOADER_FADE_DURATION = 850;
+const LOGO_CHARGE_DURATION = 4000;
+const CHARGED_LOGO_PAUSE = 50;
+const LOGO_MOVE_DURATION = 650;
+const LOADER_FADE_DURATION = 250;
 
 
 /* ============================================================

@@ -89,10 +89,10 @@
 
 .loader-logo-shell.is-moving {
   transition:
-    top 1.2s cubic-bezier(0.76, 0, 0.24, 1),
-    left 1.2s cubic-bezier(0.76, 0, 0.24, 1),
-    width 1.2s cubic-bezier(0.76, 0, 0.24, 1),
-    transform 1.2s cubic-bezier(0.76, 0, 0.24, 1);
+    top 0.7s cubic-bezier(0.76, 0, 0.24, 1),
+    left 0.7s cubic-bezier(0.76, 0, 0.24, 1),
+    width 0.7s cubic-bezier(0.76, 0, 0.24, 1),
+    transform 0.7s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 
