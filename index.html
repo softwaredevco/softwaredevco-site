@@ -103,6 +103,7 @@
 
   </div>
 
+
   <main
     class="site"
     id="site"
@@ -125,6 +126,7 @@
 
       </nav>
 
+
       <a
         href="#company"
         class="center-logo"
@@ -139,6 +141,20 @@
 
       </a>
 
+
+      <button
+        class="mobile-menu-toggle"
+        id="mobileMenuToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-controls="mobileMenu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+      </button>
+
+
       <nav
         class="nav-right"
         aria-label="Project navigation"
@@ -152,12 +168,78 @@
           aria-controls="projectModal"
         >
           Start a Project
-          <span aria-hidden="true">↗</span>
+
+          <svg
+            class="arrow-icon"
+            viewBox="0 0 20 20"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M5 15 15 5"></path>
+            <path d="M7 5h8v8"></path>
+          </svg>
         </a>
 
       </nav>
 
     </header>
+
+
+    <div
+      class="mobile-menu"
+      id="mobileMenu"
+      aria-hidden="true"
+    >
+
+      <nav
+        class="mobile-menu-nav"
+        aria-label="Mobile navigation"
+      >
+
+        <a
+          href="#company"
+          data-mobile-menu-close
+        >
+          <span>01</span>
+          Our Company
+        </a>
+
+        <a
+          href="#expertise"
+          data-mobile-menu-close
+        >
+          <span>02</span>
+          Expertise
+        </a>
+
+        <a
+          href="#project-options"
+          data-project-modal-open
+          data-mobile-menu-close
+          aria-haspopup="dialog"
+          aria-controls="projectModal"
+        >
+          <span>03</span>
+          Start a Project
+        </a>
+
+      </nav>
+
+
+      <div class="mobile-menu-footer">
+
+        <span>
+          SoftwareDevCo
+        </span>
+
+        <span>
+          We Build What’s Next
+        </span>
+
+      </div>
+
+    </div>
+
 
     <section
       class="hero"
@@ -179,12 +261,14 @@
         aria-hidden="true"
       ></div>
 
+
       <div class="hero-inner">
 
         <h1
           class="hero-title reveal"
           style="--d: 0.2s;"
         >
+
           <span class="line">
             Engineering
           </span>
@@ -192,7 +276,9 @@
           <span class="line">
             what comes next.
           </span>
+
         </h1>
+
 
         <p
           class="hero-sub reveal"
@@ -201,6 +287,7 @@
           Modern software, automation and digital solutions engineered
           for organisations ready to move forward.
         </p>
+
 
         <div
           class="hero-actions reveal"
@@ -215,8 +302,18 @@
             aria-controls="projectModal"
           >
             Work With Us
-            <span aria-hidden="true">↗</span>
+
+            <svg
+              class="arrow-icon"
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M5 15 15 5"></path>
+              <path d="M7 5h8v8"></path>
+            </svg>
           </a>
+
 
           <a
             href="#expertise"
@@ -228,6 +325,7 @@
         </div>
 
       </div>
+
 
       <div
         class="hero-footer reveal"
@@ -243,6 +341,7 @@
     </section>
 
   </main>
+
 
   <div
     class="project-modal"
@@ -261,6 +360,7 @@
       aria-label="Close project options"
     ></button>
 
+
     <div
       class="project-modal-panel"
       role="document"
@@ -276,11 +376,13 @@
         <span aria-hidden="true"></span>
       </button>
 
+
       <div class="project-modal-content">
 
         <p class="project-modal-eyebrow">
           Start a Project
         </p>
+
 
         <h2
           class="project-modal-title"
@@ -288,6 +390,7 @@
         >
           Let’s build what’s next.
         </h2>
+
 
         <p
           class="project-modal-description"
@@ -297,15 +400,13 @@
           Choose how you’d like to start the conversation.
         </p>
 
+
         <div class="project-modal-options">
 
           <a
             href="./contact.html"
             class="project-option"
           >
-
-            <span class="project-option-number">
-            </span>
 
             <span
               class="project-option-icon"
@@ -329,6 +430,7 @@
 
             </span>
 
+
             <span class="project-option-content">
 
               <span class="project-option-title">
@@ -341,14 +443,23 @@
 
             </span>
 
+
             <span
               class="project-option-arrow"
               aria-hidden="true"
             >
-              ↗
+              <svg
+                class="arrow-icon"
+                viewBox="0 0 20 20"
+                focusable="false"
+              >
+                <path d="M5 15 15 5"></path>
+                <path d="M7 5h8v8"></path>
+              </svg>
             </span>
 
           </a>
+
 
           <a
             href="https://wa.me/447375074911?text=Hello%20Luiz%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20SoftwareDevCo."
@@ -356,9 +467,6 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-
-            <span class="project-option-number">
-            </span>
 
             <span
               class="project-option-icon"
@@ -388,6 +496,7 @@
 
             </span>
 
+
             <span class="project-option-content">
 
               <span class="project-option-title">
@@ -400,16 +509,25 @@
 
             </span>
 
+
             <span
               class="project-option-arrow"
               aria-hidden="true"
             >
-              ↗
+              <svg
+                class="arrow-icon"
+                viewBox="0 0 20 20"
+                focusable="false"
+              >
+                <path d="M5 15 15 5"></path>
+                <path d="M7 5h8v8"></path>
+              </svg>
             </span>
 
           </a>
 
         </div>
+
 
         <div class="project-modal-email">
 
@@ -419,7 +537,16 @@
 
           <a href="mailto:contact@softwaredevco.co.uk">
             contact@softwaredevco.co.uk
-            <span aria-hidden="true">↗</span>
+
+            <svg
+              class="arrow-icon"
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M5 15 15 5"></path>
+              <path d="M7 5h8v8"></path>
+            </svg>
           </a>
 
         </div>
@@ -430,8 +557,10 @@
 
   </div>
 
+
   <script src="./js/main.js"></script>
   <script src="./js/project-modal.js"></script>
+  <script src="./js/mobile-menu.js"></script>
 
 </body>
 
