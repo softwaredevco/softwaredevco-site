@@ -1,0 +1,98 @@
+<svg width="338" height="238" viewBox="161 102 199 142" xmlns="http://www.w3.org/2000/svg">
+  <title>Logo — Icon (premium)</title>
+
+  <defs>
+    <!-- ===== Locked geometry — single source of truth, referenced everywhere via <use> ===== -->
+    <path id="geo-left"  d="M230,117 L176,148 L176,196 L229,227 L235,228 L235,206 L197,183 L197,159 L235,135 L236,119 Z"/>
+    <path id="geo-slash" d="M277,117 L265,117 L263,121 L247,224 L249,228 L259,228 L261,226 L277,128 Z"/>
+    <circle id="geo-dot" cx="230.5" cy="172" r="11.5"/>
+    <path id="geo-right" d="M292,117 L287,117 L286,133 L290,138 L325,159 L325,184 L287,207 L286,227 L288,229 L337,202 L345,195 L344,147 Z"/>
+
+    <clipPath id="clip-left"><use href="#geo-left"/></clipPath>
+    <clipPath id="clip-slash"><use href="#geo-slash"/></clipPath>
+    <clipPath id="clip-dot"><use href="#geo-dot"/></clipPath>
+    <clipPath id="clip-right"><use href="#geo-right"/></clipPath>
+
+    <!-- Aluminium palette, top-left light -> bottom-right shadow -->
+    <linearGradient id="steelDiag" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%"   stop-color="#F7F7F7"/>
+      <stop offset="30%"  stop-color="#D7D7D7"/>
+      <stop offset="55%"  stop-color="#B5B5B5"/>
+      <stop offset="80%"  stop-color="#8E8E8E"/>
+      <stop offset="100%" stop-color="#666666"/>
+    </linearGradient>
+
+    <linearGradient id="reflGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="hiSpot" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="shSpot" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#000000" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Horizontal brush grain + soft machined bevel + soft top-left specular + faint drop shadow -->
+    <filter id="premiumSteel" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.015 0.9" numOctaves="2" seed="11" result="noise"/>
+      <feColorMatrix in="noise" type="luminanceToAlpha" result="noiseAlpha"/>
+      <feComponentTransfer in="noiseAlpha" result="grain">
+        <feFuncA type="linear" slope="0.10" intercept="0"/>
+      </feComponentTransfer>
+      <feFlood flood-color="#ffffff" result="white"/>
+      <feComposite in="white" in2="grain" operator="in" result="grainWhite"/>
+      <feBlend in="SourceGraphic" in2="grainWhite" mode="overlay" result="textured"/>
+
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.3" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="2" specularConstant="0.5" specularExponent="20" lighting-color="#ffffff" result="spec">
+        <fePointLight x="185" y="65" z="210"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceAlpha" operator="in" result="specClip"/>
+      <feComposite in="textured" in2="specClip" operator="arithmetic" k1="0" k2="1" k3="0.45" k4="0" result="lit"/>
+      <feDropShadow in="lit" dx="0" dy="1.2" stdDeviation="1.6" flood-color="#000000" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <!-- ===== Base material per component ===== -->
+  <g id="left-bracket">
+    <use href="#geo-left" fill="url(#steelDiag)" filter="url(#premiumSteel)"/>
+  </g>
+  <g id="slash">
+    <use href="#geo-slash" fill="url(#steelDiag)" filter="url(#premiumSteel)"/>
+  </g>
+  <g id="dot">
+    <use href="#geo-dot" fill="url(#steelDiag)" filter="url(#premiumSteel)"/>
+  </g>
+  <g id="right-bracket">
+    <use href="#geo-right" fill="url(#steelDiag)" filter="url(#premiumSteel)"/>
+  </g>
+
+  <!-- ===== Soft top-left machined-edge highlights ===== -->
+  <g id="highlights">
+    <g clip-path="url(#clip-left)"><circle cx="190" cy="132" r="34" fill="url(#hiSpot)" style="mix-blend-mode:screen"/></g>
+    <g clip-path="url(#clip-slash)"><circle cx="267" cy="128" r="20" fill="url(#hiSpot)" style="mix-blend-mode:screen"/></g>
+    <g clip-path="url(#clip-dot)"><circle cx="227" cy="168" r="6" fill="url(#hiSpot)" style="mix-blend-mode:screen"/></g>
+    <g clip-path="url(#clip-right)"><circle cx="297" cy="132" r="34" fill="url(#hiSpot)" style="mix-blend-mode:screen"/></g>
+  </g>
+
+  <!-- ===== Single soft studio reflection band (restrained, no mirror shine) ===== -->
+  <g id="reflections">
+    <g clip-path="url(#clip-left)"><rect x="150" y="150" width="120" height="14" fill="url(#reflGrad)" transform="rotate(-18 200 157)" opacity="0.5"/></g>
+    <g clip-path="url(#clip-slash)"><rect x="230" y="150" width="90" height="10" fill="url(#reflGrad)" transform="rotate(-18 260 155)" opacity="0.4"/></g>
+    <g clip-path="url(#clip-right)"><rect x="270" y="150" width="120" height="14" fill="url(#reflGrad)" transform="rotate(-18 320 157)" opacity="0.5"/></g>
+  </g>
+
+  <!-- ===== Ambient occlusion: slightly darker bottom-right side faces ===== -->
+  <g id="shadows">
+    <g clip-path="url(#clip-left)"><circle cx="222" cy="212" r="28" fill="url(#shSpot)"/></g>
+    <g clip-path="url(#clip-slash)"><circle cx="255" cy="215" r="20" fill="url(#shSpot)"/></g>
+    <g clip-path="url(#clip-dot)"><circle cx="234" cy="177" r="6" fill="url(#shSpot)"/></g>
+    <g clip-path="url(#clip-right)"><circle cx="330" cy="212" r="28" fill="url(#shSpot)"/></g>
+  </g>
+</svg>

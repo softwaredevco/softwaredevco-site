@@ -1,13 +1,16 @@
 /* ============================================================
-   SoftwareDevCo — Logo Loader
+   SoftwareDevCo — Clean Logo Loader
 
    Sequence:
    1. Faint grey logo is visible immediately.
-   2. Metallic colour fills from bottom to top.
-   3. A brushed-steel reflection travels through the filled area.
-   4. Completed logo pauses.
-   5. Logo shrinks and moves into the navigation.
-   6. Loader fades away.
+   2. Metallic logo fills once from bottom to top.
+   3. Logo immediately moves into the navigation.
+   4. Loader fades away.
+
+   No glow.
+   No reflection sweep.
+   No second-direction animation.
+   No pause after charging.
    ============================================================ */
 
 
@@ -18,7 +21,6 @@
 .site-loader {
   position: fixed;
   inset: 0;
-
   z-index: 9999;
 
   display: grid;
@@ -36,23 +38,19 @@
   visibility: visible;
 
   transition:
-    opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 0.85s;
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.3s;
 }
-
-
-/* Loader fades after the logo reaches the navigation */
 
 .site-loader.loader-complete {
   opacity: 0;
   visibility: hidden;
-
   pointer-events: none;
 }
 
 
 /* ============================================================
-   LOGO STAGE
+   LOGO CONTAINER
    ============================================================ */
 
 .loader-logo-shell {
@@ -60,16 +58,12 @@
 
   top: 50%;
   left: 50%;
-
   z-index: 2;
 
   width: clamp(200px, 21vw, 320px);
   aspect-ratio: 1.34 / 1;
 
-  transform:
-    translate(-50%, -50%)
-    scale(1);
-
+  transform: translate(-50%, -50%);
   transform-origin: center;
 
   isolation: isolate;
@@ -82,21 +76,18 @@
 }
 
 
-/*
-  JavaScript adds this class when the completed logo begins
-  travelling into the navigation.
-*/
+/* Added by JavaScript as soon as charging completes */
 
 .loader-logo-shell.is-moving {
   transition:
-    top 0.7s cubic-bezier(0.76, 0, 0.24, 1),
-    left 0.7s cubic-bezier(0.76, 0, 0.24, 1),
-    width 0.7s cubic-bezier(0.76, 0, 0.24, 1),
-    transform 0.7s cubic-bezier(0.76, 0, 0.24, 1);
+    top 0.65s cubic-bezier(0.76, 0, 0.24, 1),
+    left 0.65s cubic-bezier(0.76, 0, 0.24, 1),
+    width 0.65s cubic-bezier(0.76, 0, 0.24, 1),
+    transform 0.65s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 
-/* Both logo images remain perfectly aligned */
+/* Both copies occupy the same exact position */
 
 .loader-logo {
   position: absolute;
@@ -115,229 +106,82 @@
 
 
 /* ============================================================
-   FAINT GREY BASE LOGO
+   FAINT GREY LOGO
    ============================================================ */
 
 .loader-logo-base {
   z-index: 1;
 
-  opacity: 0.44;
+  opacity: 0.42;
 
   filter:
     grayscale(1)
     saturate(0)
-    brightness(0.55)
-    contrast(0.95);
+    brightness(0.52)
+    contrast(0.98);
 }
 
 
 /* ============================================================
-   METALLIC FILL
+   BOTTOM-TO-TOP METALLIC FILL
    ============================================================ */
 
 .loader-fill {
   position: absolute;
   inset: 0;
-
   z-index: 2;
 
   overflow: hidden;
-
   clip-path: inset(100% 0 0 0);
 
   animation:
-    activateMetal
-    2.8s
-    cubic-bezier(0.72, 0, 0.18, 1)
+    chargeLogoBottomToTop
+    1.35s
+    linear
     forwards;
 }
 
+@keyframes chargeLogoBottomToTop {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
 
-.loader-logo-metal {
-  filter:
-    grayscale(1)
-    saturate(0)
-    brightness(1.08)
-    contrast(1.24);
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Disable all additional loading movements */
+.loader-energy,
+.loader-logo-shell::after {
+  display: none !important;
 }
 
 
-/* ============================================================
-   BRUSHED-STEEL REFLECTION
-
-   This reflection is masked to the transparent shape of the logo.
-   It rises through the logo while the metallic layer fills.
-   ============================================================ */
+/* Hide the old secondary effect if it remains in index.html */
 
 .loader-energy {
-  position: absolute;
-  inset: 0;
-
-  z-index: 3;
-
-  opacity: 0;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0) 30%,
-      rgba(255, 255, 255, 0.04) 38%,
-      rgba(255, 255, 255, 0.16) 44%,
-      rgba(255, 255, 255, 0.72) 49%,
-      rgba(255, 255, 255, 0.24) 53%,
-      rgba(255, 255, 255, 0.07) 59%,
-      rgba(255, 255, 255, 0) 68%,
-      rgba(255, 255, 255, 0) 100%
-    );
-
-  background-size: 100% 320%;
-  background-position: 50% 110%;
-
-  -webkit-mask-image: url("../assets/logo.png");
-  mask-image: url("../assets/logo.png");
-
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-
-  -webkit-mask-position: center;
-  mask-position: center;
-
-  -webkit-mask-size: contain;
-  mask-size: contain;
-
-  animation:
-    brushedSteelRise
-    2.8s
-    cubic-bezier(0.72, 0, 0.18, 1)
-    forwards;
+  display: none;
 }
 
 
 /* ============================================================
-   SUBTLE METALLIC TEXTURE
+   SINGLE CHARGING ANIMATION
    ============================================================ */
 
-.loader-logo-shell::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  z-index: 4;
-
-  opacity: 0;
-
-  pointer-events: none;
-
-  background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.045) 0,
-      rgba(255, 255, 255, 0.045) 1px,
-      rgba(255, 255, 255, 0) 1px,
-      rgba(255, 255, 255, 0) 4px
-    );
-
-  -webkit-mask-image: url("../assets/logo.png");
-  mask-image: url("../assets/logo.png");
-
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-
-  -webkit-mask-position: center;
-  mask-position: center;
-
-  -webkit-mask-size: contain;
-  mask-size: contain;
-
-  animation:
-    revealMetalTexture
-    2.8s
-    cubic-bezier(0.72, 0, 0.18, 1)
-    forwards;
-}
-
-
-/* ============================================================
-   LOADER ANIMATIONS
-   ============================================================ */
-
-@keyframes activateMetal {
+@keyframes chargeLogoBottomToTop {
   0% {
     clip-path: inset(100% 0 0 0);
   }
 
-  6% {
-    clip-path: inset(98% 0 0 0);
-  }
-
-  88% {
-    clip-path: inset(0 0 0 0);
-  }
-
   100% {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-
-@keyframes brushedSteelRise {
-  0% {
-    opacity: 0;
-    background-position: 50% 110%;
-  }
-
-  8% {
-    opacity: 0.25;
-  }
-
-  18% {
-    opacity: 0.7;
-  }
-
-  76% {
-    opacity: 0.62;
-    background-position: 50% -5%;
-  }
-
-  90% {
-    opacity: 0.18;
-  }
-
-  100% {
-    opacity: 0;
-    background-position: 50% -10%;
-  }
-}
-
-
-@keyframes revealMetalTexture {
-  0% {
-    opacity: 0;
-    clip-path: inset(100% 0 0 0);
-  }
-
-  15% {
-    opacity: 0.04;
-  }
-
-  80% {
-    opacity: 0.1;
-    clip-path: inset(0 0 0 0);
-  }
-
-  100% {
-    opacity: 0.06;
     clip-path: inset(0 0 0 0);
   }
 }
 
 
 /* ============================================================
-   MOBILE LOADER
+   MOBILE
    ============================================================ */
 
 @media (max-width: 700px) {
@@ -353,23 +197,12 @@
 
 @media (prefers-reduced-motion: reduce) {
   .loader-logo-shell,
-  .loader-fill,
-  .loader-energy,
-  .loader-logo-shell::after {
+  .loader-fill {
     animation: none !important;
     transition: none !important;
   }
 
   .loader-fill {
-    clip-path: inset(0);
-  }
-
-  .loader-energy {
-    display: none;
-  }
-
-  .loader-logo-shell::after {
-    opacity: 0.06;
     clip-path: inset(0);
   }
 }

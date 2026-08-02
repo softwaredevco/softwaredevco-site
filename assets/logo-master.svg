@@ -1,0 +1,28 @@
+<svg width="338" height="238" viewBox="161 102 199 142" xmlns="http://www.w3.org/2000/svg">
+  <title>Logo — Master</title>
+
+  <defs>
+    <!-- Brushed steel: restrained vertical gradient, light top / darker base, matching source art -->
+    <linearGradient id="steel" gradientUnits="userSpaceOnUse" x1="0" y1="112" x2="0" y2="232">
+      <stop offset="0%"   stop-color="#d9d9d9"/>
+      <stop offset="8%"   stop-color="#eaeaea"/>
+      <stop offset="25%"  stop-color="#c4c4c4"/>
+      <stop offset="50%"  stop-color="#b0b0b0"/>
+      <stop offset="75%"  stop-color="#9f9f9f"/>
+      <stop offset="100%" stop-color="#8e8e8e"/>
+    </linearGradient>
+  </defs>
+
+  <g id="logo-symbol" fill="url(#steel)">
+    <path id="bracket-left"
+      d="M230,117 L176,148 L176,196 L229,227 L235,228 L235,206 L197,183 L197,159 L235,135 L236,119 Z"/>
+
+    <path id="slash"
+      d="M277,117 L265,117 L263,121 L247,224 L249,228 L259,228 L261,226 L277,128 Z"/>
+
+    <circle id="dot" cx="230.5" cy="172" r="11.5"/>
+
+    <path id="bracket-right"
+      d="M292,117 L287,117 L286,133 L290,138 L325,159 L325,184 L287,207 L286,227 L288,229 L337,202 L345,195 L344,147 Z"/>
+  </g>
+</svg>

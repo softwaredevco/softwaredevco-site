@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Start a Project | SoftwareDevCo</title>
+
+  <meta
+    name="description"
+    content="Tell SoftwareDevCo about your website, software, automation or digital project."
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./css/contact.css"
+  >
+</head>
+
+<body>
+
+  <main class="contact-page">
+
+    <div
+      class="contact-grid"
+      aria-hidden="true"
+    ></div>
+
+    <div
+      class="contact-curve contact-curve-one"
+      aria-hidden="true"
+    ></div>
+
+    <div
+      class="contact-curve contact-curve-two"
+      aria-hidden="true"
+    ></div>
+
+    <header class="contact-nav">
+
+      <a
+        href="./index.html"
+        class="contact-back"
+        id="contactBack"
+      >
+        <span aria-hidden="true">←</span>
+        Back
+      </a>
+
+      <a
+        href="./index.html"
+        class="contact-logo"
+        aria-label="SoftwareDevCo home"
+      >
+        <img
+          src="./assets/logo-nav.svg"
+          alt="SoftwareDevCo"
+        >
+      </a>
+
+      <a
+        href="./index.html"
+        class="contact-home"
+      >
+        Home
+      </a>
+
+    </header>
+
+    <section class="contact-section">
+
+      <div class="contact-intro">
+
+        <p class="contact-eyebrow">
+          Start a Project
+        </p>
+
+        <h1>
+          Tell us what
+          you’re building.
+        </h1>
+
+        <p class="contact-lead">
+          Share a little about your business, your idea and what
+          you would like to achieve. We’ll review your enquiry and
+          get back to you as soon as possible.
+        </p>
+
+        <div class="contact-direct">
+
+          <span>
+            Prefer email?
+          </span>
+
+          <a href="mailto:contact@softwaredevco.co.uk">
+            contact@softwaredevco.co.uk
+            <span aria-hidden="true">↗</span>
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="contact-form-wrap">
+
+        <div
+          class="contact-success"
+          id="contactSuccess"
+          role="status"
+          aria-live="polite"
+          hidden
+        >
+          <span
+            class="contact-success-icon"
+            aria-hidden="true"
+          >
+            ✓
+          </span>
+
+          <div>
+            <strong>
+              Your enquiry has been sent.
+            </strong>
+
+            <p>
+              Thank you for contacting SoftwareDevCo.
+              We’ll be in touch as soon as possible.
+            </p>
+          </div>
+        </div>
+
+        <form
+          class="contact-form"
+          id="contactForm"
+          action="https://formsubmit.co/contact@softwaredevco.co.uk"
+          method="POST"
+        >
+
+          <input
+            type="hidden"
+            name="_subject"
+            value="New SoftwareDevCo Project Enquiry"
+          >
+
+          <input
+            type="hidden"
+            name="_template"
+            value="table"
+          >
+
+          <input
+            type="hidden"
+            name="_next"
+            value="https://softwaredevco.co.uk/contact.html?submitted=true"
+          >
+
+          <input
+            type="hidden"
+            name="_autoresponse"
+            value="Thank you for contacting SoftwareDevCo. We have received your project enquiry and will respond as soon as possible."
+          >
+
+          <input
+            class="contact-honeypot"
+            type="text"
+            name="_honey"
+            tabindex="-1"
+            autocomplete="off"
+          >
+
+          <div class="contact-field-grid">
+
+            <div class="contact-field">
+
+              <label for="name">
+                Your name
+                <span aria-hidden="true">*</span>
+              </label>
+
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+              >
+
+            </div>
+
+            <div class="contact-field">
+
+              <label for="email">
+                Email address
+                <span aria-hidden="true">*</span>
+              </label>
+
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              >
+
+            </div>
+
+          </div>
+
+          <div class="contact-field-grid">
+
+            <div class="contact-field">
+
+              <label for="company">
+                Company
+                <span class="optional">
+                  Optional
+                </span>
+              </label>
+
+              <input
+                id="company"
+                name="company"
+                type="text"
+                autocomplete="organization"
+              >
+
+            </div>
+
+            <div class="contact-field">
+
+              <label for="phone">
+                Phone number
+                <span class="optional">
+                  Optional
+                </span>
+              </label>
+
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+              >
+
+            </div>
+
+          </div>
+
+          <div class="contact-field-grid">
+
+            <div class="contact-field">
+
+              <label for="project-type">
+                What are you looking to build?
+                <span aria-hidden="true">*</span>
+              </label>
+
+              <select
+                id="project-type"
+                name="project_type"
+                required
+              >
+                <option value="" selected disabled>
+                  Select a project type
+                </option>
+
+                <option value="Website">
+                  Website
+                </option>
+
+                <option value="E-commerce Website">
+                  E-commerce website
+                </option>
+
+                <option value="Software Development">
+                  Software development
+                </option>
+
+                <option value="Automation">
+                  Automation
+                </option>
+
+                <option value="Mobile Application">
+                  Mobile application
+                </option>
+
+                <option value="AI Solution">
+                  AI solution
+                </option>
+
+                <option value="Other">
+                  Something else
+                </option>
+              </select>
+
+            </div>
+
+            <div class="contact-field">
+
+              <label for="budget">
+                Estimated budget
+                <span class="optional">
+                  Optional
+                </span>
+              </label>
+
+              <select
+                id="budget"
+                name="budget"
+              >
+                <option value="" selected>
+                  Prefer not to say
+                </option>
+
+                <option value="Below £1,000">
+                  Below £1,000
+                </option>
+
+                <option value="£1,000 - £2,500">
+                  £1,000 – £2,500
+                </option>
+
+                <option value="£2,500 - £5,000">
+                  £2,500 – £5,000
+                </option>
+
+                <option value="£5,000 - £10,000">
+                  £5,000 – £10,000
+                </option>
+
+                <option value="£10,000+">
+                  £10,000+
+                </option>
+              </select>
+
+            </div>
+
+          </div>
+
+          <div class="contact-field">
+
+            <label for="timeline">
+              Desired timeline
+              <span class="optional">
+                Optional
+              </span>
+            </label>
+
+            <select
+              id="timeline"
+              name="timeline"
+            >
+              <option value="" selected>
+                No fixed timeline
+              </option>
+
+              <option value="As soon as possible">
+                As soon as possible
+              </option>
+
+              <option value="Within 1 month">
+                Within one month
+              </option>
+
+              <option value="Within 2-3 months">
+                Within two to three months
+              </option>
+
+              <option value="Within 3-6 months">
+                Within three to six months
+              </option>
+
+              <option value="Still exploring">
+                I’m still exploring
+              </option>
+            </select>
+
+          </div>
+
+          <div class="contact-field">
+
+            <div class="contact-message-label">
+
+              <label for="message">
+                Tell us about your project
+                <span aria-hidden="true">*</span>
+              </label>
+
+              <span id="messageCount">
+                0 / 2000
+              </span>
+
+            </div>
+
+            <textarea
+              id="message"
+              name="message"
+              rows="8"
+              maxlength="2000"
+              placeholder="What would you like to build, improve or automate?"
+              required
+            ></textarea>
+
+          </div>
+
+          <label class="contact-consent">
+
+            <input
+              type="checkbox"
+              name="consent"
+              value="Confirmed"
+              required
+            >
+
+            <span>
+              I agree that SoftwareDevCo may use the information
+              submitted here to respond to my enquiry.
+            </span>
+
+          </label>
+
+          <div class="contact-submit-row">
+
+            <button
+              class="contact-submit"
+              type="submit"
+            >
+              Send Project Enquiry
+              <span aria-hidden="true">↗</span>
+            </button>
+
+            <p>
+              We aim to respond within one business day.
+            </p>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="./js/contact.js"></script>
+
+  <script>
+    "use strict";
+
+    const contactBack =
+      document.getElementById("contactBack");
+
+    contactBack?.addEventListener(
+      "click",
+      (event) => {
+
+        if (window.history.length > 1) {
+          event.preventDefault();
+          window.history.back();
+        }
+      }
+    );
+  </script>
+
+</body>
+
+</html>
