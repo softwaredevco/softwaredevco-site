@@ -57,6 +57,7 @@
       aria-hidden="true"
     ></div>
 
+
     <header class="contact-nav">
 
       <a
@@ -67,6 +68,7 @@
         <span aria-hidden="true">←</span>
         Back
       </a>
+
 
       <a
         href="./index.html"
@@ -79,6 +81,7 @@
         >
       </a>
 
+
       <a
         href="./index.html"
         class="contact-home"
@@ -88,6 +91,7 @@
 
     </header>
 
+
     <section class="contact-section">
 
       <div class="contact-intro">
@@ -96,16 +100,19 @@
           Start a Project
         </p>
 
+
         <h1>
           Tell us what
           you’re building.
         </h1>
+
 
         <p class="contact-lead">
           Share a little about your business, your idea and what
           you would like to achieve. We’ll review your enquiry and
           get back to you as soon as possible.
         </p>
+
 
         <div class="contact-direct">
 
@@ -115,40 +122,33 @@
 
           <a href="mailto:contact@softwaredevco.co.uk">
             contact@softwaredevco.co.uk
-            <span aria-hidden="true">↗</span>
+
+            <svg
+              class="contact-arrow-icon"
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M5 15 15 5"></path>
+              <path d="M7 5h8v8"></path>
+            </svg>
           </a>
 
         </div>
 
       </div>
 
+
       <div class="contact-form-wrap">
 
-        <div
-          class="contact-success"
-          id="contactSuccess"
+        <p
+          class="contact-form-status"
+          id="contactFormStatus"
           role="status"
           aria-live="polite"
           hidden
-        >
-          <span
-            class="contact-success-icon"
-            aria-hidden="true"
-          >
-            ✓
-          </span>
+        ></p>
 
-          <div>
-            <strong>
-              Your enquiry has been sent.
-            </strong>
-
-            <p>
-              Thank you for contacting SoftwareDevCo.
-              We’ll be in touch as soon as possible.
-            </p>
-          </div>
-        </div>
 
         <form
           class="contact-form"
@@ -171,12 +171,6 @@
 
           <input
             type="hidden"
-            name="_next"
-            value="https://softwaredevco.co.uk/contact.html?submitted=true"
-          >
-
-          <input
-            type="hidden"
             name="_autoresponse"
             value="Thank you for contacting SoftwareDevCo. We have received your project enquiry and will respond as soon as possible."
           >
@@ -188,6 +182,7 @@
             tabindex="-1"
             autocomplete="off"
           >
+
 
           <div class="contact-field-grid">
 
@@ -208,6 +203,7 @@
 
             </div>
 
+
             <div class="contact-field">
 
               <label for="email">
@@ -226,6 +222,7 @@
             </div>
 
           </div>
+
 
           <div class="contact-field-grid">
 
@@ -247,6 +244,7 @@
 
             </div>
 
+
             <div class="contact-field">
 
               <label for="phone">
@@ -267,6 +265,7 @@
 
           </div>
 
+
           <div class="contact-field-grid">
 
             <div class="contact-field">
@@ -281,7 +280,11 @@
                 name="project_type"
                 required
               >
-                <option value="" selected disabled>
+                <option
+                  value=""
+                  selected
+                  disabled
+                >
                   Select a project type
                 </option>
 
@@ -316,6 +319,7 @@
 
             </div>
 
+
             <div class="contact-field">
 
               <label for="budget">
@@ -329,7 +333,10 @@
                 id="budget"
                 name="budget"
               >
-                <option value="" selected>
+                <option
+                  value=""
+                  selected
+                >
                   Prefer not to say
                 </option>
 
@@ -358,6 +365,7 @@
 
           </div>
 
+
           <div class="contact-field">
 
             <label for="timeline">
@@ -371,7 +379,10 @@
               id="timeline"
               name="timeline"
             >
-              <option value="" selected>
+              <option
+                value=""
+                selected
+              >
                 No fixed timeline
               </option>
 
@@ -397,6 +408,7 @@
             </select>
 
           </div>
+
 
           <div class="contact-field">
 
@@ -424,6 +436,7 @@
 
           </div>
 
+
           <label class="contact-consent">
 
             <input
@@ -440,6 +453,7 @@
 
           </label>
 
+
           <div class="contact-submit-row">
 
             <button
@@ -447,8 +461,18 @@
               type="submit"
             >
               Send Project Enquiry
-              <span aria-hidden="true">↗</span>
+
+              <svg
+                class="contact-arrow-icon"
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M5 15 15 5"></path>
+                <path d="M7 5h8v8"></path>
+              </svg>
             </button>
+
 
             <p>
               We aim to respond within one business day.
@@ -464,25 +488,69 @@
 
   </main>
 
+
+  <div
+    class="contact-confirmation"
+    id="contactConfirmation"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="contactConfirmationTitle"
+    aria-hidden="true"
+  >
+
+    <button
+      class="contact-confirmation-backdrop"
+      type="button"
+      data-contact-confirmation-close
+      aria-label="Close confirmation"
+    ></button>
+
+
+    <div class="contact-confirmation-panel">
+
+      <div
+        class="contact-confirmation-mark"
+        aria-hidden="true"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          focusable="false"
+        >
+          <path d="m6 12 4 4 8-9"></path>
+        </svg>
+      </div>
+
+
+      <p class="contact-confirmation-eyebrow">
+        Enquiry Received
+      </p>
+
+
+      <h2 id="contactConfirmationTitle">
+        Thank you for your enquiry.
+      </h2>
+
+
+      <p>
+        We’ve received your project details and will review them shortly.
+        We aim to respond within one business day.
+      </p>
+
+
+      <button
+        class="contact-confirmation-button"
+        type="button"
+        data-contact-confirmation-close
+      >
+        Continue
+      </button>
+
+    </div>
+
+  </div>
+
+
   <script src="./js/contact.js"></script>
-
-  <script>
-    "use strict";
-
-    const contactBack =
-      document.getElementById("contactBack");
-
-    contactBack?.addEventListener(
-      "click",
-      (event) => {
-
-        if (window.history.length > 1) {
-          event.preventDefault();
-          window.history.back();
-        }
-      }
-    );
-  </script>
 
 </body>
 
