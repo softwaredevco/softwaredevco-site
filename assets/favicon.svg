@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="150.5 63 220 220" xmlns="http://www.w3.org/2000/svg">
+  <title>Favicon</title>
+  <defs>
+    <linearGradient id="steelDiag" x1="0%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#F7F7F7"/>
+      <stop offset="30%" stop-color="#D7D7D7"/>
+      <stop offset="55%" stop-color="#B5B5B5"/>
+      <stop offset="80%" stop-color="#8E8E8E"/>
+      <stop offset="100%" stop-color="#666666"/>
+    </linearGradient>
+  </defs>
+  <g id="logo-symbol" fill="url(#steelDiag)">
+    <path id="bracket-left" d="M230,117 L176,148 L176,196 L229,227 L235,228 L235,206 L197,183 L197,159 L235,135 L236,119 Z"/>
+    <path id="slash" d="M277,117 L265,117 L263,121 L247,224 L249,228 L259,228 L261,226 L277,128 Z"/>
+    <path id="bracket-right" d="M292,117 L287,117 L286,133 L290,138 L325,159 L325,184 L287,207 L286,227 L288,229 L337,202 L345,195 L344,147 Z"/>
+    <circle id="dot" cx="230.5" cy="172" r="11.5"/>
+  </g>
+</svg>

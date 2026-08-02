@@ -1,277 +1,438 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Software Development Company</title>
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAemUlEQVR4nO17e3BjV5nn75xzr2TJsmV3LLsd5+EYpwnqDFW9akgnLMgOCd00HSBhZR7ZDNBL0cUAG5IetnZ2a0ctpsLALmEX2Kmazswk1BQZWIuFQDKTZAhxBHn0hFZBEuxA4jhud7uNJce25GtJ957Ht3/oXrfs7k4IM1u1W8VXpbLu0b3nnO87v+99zQAw/0P+By3XPJPJsFKpxHp7eymfzyOVSvGhoSEDAJOTk2J9fZ0DwIkTJ1wALJ1OcwCW4zgaAGKxGBUKBZNMJq3Ozk4RDoflyspKuFarqXg8LqSULBqNGrO0ZFu9glw3pgHAtm2q1Wo8+A4AUkoGAMvLUdPXJ9ni4iL19fWxpaUl09PTowHYUkqmlGJdXV3Mf1a4rsur1bC3vj6rtNasr68vFIvF3HK5bCycnxgAmpyctKamplQwGIvFCACSySSVSiWeSCTgui47ceIEywDs5/PzIhqNimef7VbJZJkvLS2JZDJppqamzKWXpvnAgIzUahd68XjZABAxN8ZX1SqLxOPKeiUsRFxZkUjEc19yWXdnNwMAx+4gYMG2bVsuLcXMhRfWQ1pD9fX1MQDwPI9XKhWKx+Oyu7tbOI4TXl+3WcKyCVEQAAOU0d/fH5VS6lgsprXWkUgkYhgAkclkkM/nAUAHiMhms5iammL5fF4D4ACQSqVELBYTjuPopaUlMTg42Cal1E8+OVBLp5soKZVKrFAo0KWXpu329rLxT50AKABWvR4JLS9Pu/F4XFQqCS3l8wwYRDy+Irq7u9nsLBQA9PQ4WkoZamtrE5xzWat18O5ujzmOY4QQlmVZFHWjfAUrMhaLGcdxeHBItm0T59xyXTdAhYpGo6ZaDYtYrM4tyyLHcYxSinEA5DOpW04eU1NTzL/2J86iWBwyAFQsFiPbtsl1XdcYo9LpEotEIsIXopVOpzv6+102NTWlqtWqdl2XSSkj8/PzpHW5Ho/HjW3bJOXzrL293QwOQtVqNTU7CzU4CPT0OFxKGYrFYpzzLsuyrDbbXqZyuexVKhXtOE5jdXXVfTH2ogtAzs9HaHFxkSqVigaAcDgsjTHKVxkZc2M8HK6Kzs5eDQCO025s27YSiUQby2QyIp/P+zDZEEBgAwIBGB8BVr1eZ5FIhIrFogaAffv22fV6nQFQ5XKZZzIZlc/nrUgkQrGlmHD7XRYOhyVmYbn9LqtWqzqRSHDXdVmtVuNtbW0iEol4kfkI1QfqTcg7Do/FYqZer4c6OzvZiy++6Pb19YUajbi27WVraSnm2vY8DQwMaMdxWKVS4aFQiCzLspVSMpFImNnZ2Q31bm9vN57nsUajwTs7OzWAkG3bVkdHB+PIN6HtM82x2SCyFsFQsVjUA5ZlB3YAAMrlsgGAQqFAkUiEHnjgAZFIJHhwT9dSlymXy1wOSDscXiDPu4RJKW0pJavVaopzLh3H4XOhOZqfj1C5XDb1el2trKyISCRiHMcRg4ODynEubdRqL6tYLKYH22ENDAwwx3FCUsrQgBxgnZ2dwrZtb309wV966SW7v7+f9ff3s56eHp1IJHg8Hhfbtm3jiUQiFIlE3GeeecZZXl5eD2Ae/EUmk+H5fN60CCAYC1Qk0DUCwJPJpEhMJQzSgOM4bGkpJmx7nkKhEAFAJBKhSqXCp3ftUqmZGZ5IJPj09DSmp6fV8PCwFY/HRSwW8wqFXrr00pIdj6+IaDRqAg8Qc2PcdBtVrYZFJOK4UspQd3c3K5fLnmVZdnd3ty6XyyYSiVgAUK/Xled5rGlHeniLLZDhcLjNGGMvLXWt9/Ss8vBCmNgWhrbCPvi9FREBGSBtpdNAuVzmO3fu1DMzM7xYLKrh4eEQAExPT6tsNkuPPfYY96HN6vU6W19f58HJLC8vhy3Lovl5W9r2PEkp2eDgIFzXZQCwsLBA7e3txrIsOxqNmoWFBbJtm0KhkN3Z2amXlpaMlJLZtk0DAwNsfn6edu3apU6cONG+uBjx2tvLxrYTUaIVGY1GTTgcFvPz8xIAQqGQvZXBVhtgWlTCpNNp0dvbSzMzMxwAmjYgw/btW7M6OjpUPp836XRaOI7DisUiJZNJnkgkQuVy2atWO0Vfn1QBOoaHh3H69GnLjwVMpVLh8Xhc1Ot1nkgkFIDg1LC0tGTi8biwF22SfZLFYjHjui6r18Nhy3K8paUlMzg4aDmO4xtWqXAmHpAA4HmXsIGBOpufn6dt27aFtdYq7ISF6TaKAzDZbJZhs/ELTp9SqRTPZDK8UCiYfD5visWiLhaLOp0GTyYnxfPP1zfUyHEcNjQ0ZNLpNDzPYysrK+R5Hrv66ou9YjFGb31rrxwYkOz06dNWpVLRAwMDOmC+UqnoSCRiVlZWRLlc9gAgXA2LZrC0jck+yRKJhF5ZWRFdS13Gspx127bJtm1yHMcFgGq1KnyDjEqloi3LsgcGBuxo9LQFwIrH42Z5edmNxWLGdBtVq9U4B8ByuRyw2fIHxIaGhkw+nyc/wmNA02gWCqCpqSlz4kTBLZVKLJPJsGKxqGZmZrjrujYAdHd364GBAbZnz55QKuWwUqnEgEH17LPP1tvb2025XObxeFwAkF/84hcplUrZu3btsnfu3IlqtSpilw3YicQVVjS6ZsLhsJienkY0GjX1gTqzbdsK0FGpVHixWHQBeJ2dVVGv11VPTw+vVCp6ft5jtVpN+QixAMB1Xba01GVqtZoKTj3Q+VY14K3XQQicz+dNNptluVwOqVRKFIsxAgqbYoh0Os0dxwkNDQ3xfD5f8+cWqVSKF4sxGh6eF1fE40JVEvqh6Yc8f61gDgCIJZNpTE0VHADive89GH3mmR/L9vZ2MzU1pdLpdMhxHF4sFuvDw8MhKQdYT4+jg9OPRCIEwAaAQGX8YAyRSITq9boul8vc8zwWGMDWGCAgnc1mN5BRLBal7x2Qy+XIH1NAb2AcWQYZBjRd4hVXXGHl83nn9ttvH56cnPrKHXfc0VMsFnUq5YTi8bhZi8W8h3Y9pADQRz/6Ufv408e/+uvnn//bp5546uvf+MY3dnR2uvqJJ57+5Pe+d/+//eEP71772Mc+xgEgmUxajuPoer2uksmkvSGxWIx8xlGpVJoepB7j7kvNOKRcLptyuWzm5ubIcZyQ7xoNb2E4QMPGdS6XMwAwPDxs+wxyoOkW/VNj6XQpeIaQAdLpdCibzdr33ntv9d5v3pv6zB995sFk8k2H9+zZsxOASaVSAJoeIZvMMgB4+9vffumVV+68bccVV9yy55o9n31L6qoDx44dq1900YUf3r9/7zcffPDh23O5nLVr1662RCLBK5UKn5raqSORCIVCIWpvb8Yitm1bkciQFQqFKBaLmXlvXobfEKbZ2VkrEA7QdJXlctkUi0XVGvgYYOPEgTPwN9PT0xIA5ZE3AHxdbqLGcZwN4zk5OSlGRkZ4LpdrPPTQQ++/9rrRR7ri3UO/WSgpY7gHAKdPn0alUuFDQ0Nm586dBACXXHjhdmOMrjvrDaO0CkfangUArb16OGzT9de/886nn3766/fee29HoVCga6+9VuzZczJULBZNJBKhRCJhHMdhUkpVqfxKJ9YT3HEcPgxgfn6e+vv72Ta5LQQAnucxz/NYZ2en2HPRnrZAz30mcq26zzOZjDjzG0QqlbIymQwrFAoAwNPpND9woKgB6EwmE7r11lspl8vVfvnsLz+7M3nF97SSXZVKRRmQpVRDA4BSypqenvby+TwtLCxYALC9/6KL2traBIisWr0m1teri77sbSJinud6b3nLWz46+/LcPe/d+97Bu+66SyWTSWt4eNiq1+ssCHvr9TobGBhg8348YTUNLMLhsBQ1oQBg1/QuFY1GLSklC78hTBvMopkBbsQDmUyGzczM8Gw2C98V4sCBAzqfz1MqlWIATKFQ0LkcKJvNWvl83jt06JD+xc+f/Yve3t6vr687tF6rGSIjiAiSSABAKBSiVCoVSaVSYnZ2ljehRpcBgDZGaG3WRGfnDACQNh5jDEpJUVldUZcOXnz93/zt3+S//OUvv/nuu+92br75ZhGJROjEiRMygPfsLDA9Pa27u7vdyNCQ29PTwx3HYfWBuva8S9jq9att3d0VXSwWN9UDNAD47hAA4Ie+VCwWCYAsFosbv/ljBIAdPXrUOnTokPzSl74Uv+66vX+XSGzf/5vFshIWF5wTM0wTkaZmNgwYY7QfsGBwcNAAQMiy3wgNQFisse5Unn3qqTUAAG+emlIGnAvrlfKy3ta97Q8O/uHBHyV3/MHNN9y4/x/uueeetm9+85tUKBTMm998fVt//5o58VaQM+PwQqFgUqmUCvKSUGiOXn7ZU6FQO6VSKR6LxcyGb8dmAxiQ2XLN0HSJFgAeMP+DH/xg5/vff+PjF2y7YP/CwmkFBgtg/nxERhvWcJQHAJdddpk+duyYOzQ0ZPr7+wkAuCX6pFIQQkBrOn3o0KGav14IgCEiMkaDcy5eWV7WkfZo1zX/es/9jz766O0f//jHG5/+9Kf5vn37rGh0zQBABhkA8N100fT29hIAJBIJMzAwoDurnSLwFK1eYGusv1UoG98PHDigjx8/Lg4dOiQf/oeH35V8087HGBdXll9ZUkJwizECYwRjSEci7bzRcI1tswUAePHFF4PsM0AZE5Z1UUN54JxjbW2tEqxTKpWeBMAty4JSmrQ2YIyJylrFNLw62717951PP338q2NjY95VV12le3p6WLVa1fl8korFohoaGjLJZFLMzMzw3t5eKhQKpre3l8JvCMvp6WntOA5rDXaAsyPBVsYJAMtkMvzIziNs9+7d8pF/fOQTF1500YPO+nrP6uqqFpxZBA2tNbRWqqurS1Sra8svvPCrf3PjjTeezGazfG5ujur1OiuVSiyfz+vbbrutLdre3qGNgWVZsCwx2cQN2VdfffUdhUIhS0RWWzjMjNJGGw0w4g2vjuXlV/SOHZffNjX16+985zv/M/LAAw/UMpkMTyMXuGl0dnaKWCxGk5OTIp1O81KpZPf29lImk6FYLEb8HAy30qYsMJPJsGQySWyM6WNPHvvCxZdc8lfVtSqr1RuGcS4MEUAEIqO6u7uspaXy5COPFEZuuOGG72ezWZ7L5SiRSJipqYQZGRkBALz73e++SCrd7ymlDRHq9cZcsDYR0cjIyBeefPLJWxzHaUQjUe5JV0vtARxMKU+cPHlC9fb2fPD++4/96Nvf/vZgLpdr3PS1rwUIQ7Va1SMjIyaIA+bn56lUKtkzMzN8fn5ebBXAVshvFEey2WxQE4j+4hfP/a9t23r+S6lc1gQC5+CGDAwZMmT0BRdss0ql0ve+9a17r/7sZw89NzExYflBFUMBSKUcBjQFYNt2XzTaJoi0kZ6Het3ZEABjjIjI2r9//7d+9tTPrisvl+c7OzsFGVIwAGMcnFvWqVOnVKQtctXbrn7bUz+dmLju1ltvdbPZLBseHrZ8QVjhcLitXC5zH/rad5l6a1W4VQU2kiMiYgDoqjdfdVH/YP99bW3h1MJiSYGRZXEGggEHjC1CLBqNilOn5u+85ppr/hgAxsfHxejoqAIAP7Q2uVwOX/kKeC4HcG4PhEM2qKGxtraGV155ZSE4PQBgjKmJiQlrdHT0iTvvvPOqvXv3/t327f3vqFaqyvVcYQwxxrhVKpV0ezSy/dLLLnvwJ49MfPgd143+byIyIyMjvLfQSzOpGd0slGQN8IAAgEKhoM+lAgEKNpKju+66y2KMUUdPx3vi8a7U4uKiyzhZjAHGGBhjdLS9ndshW504MXfommuu+WMi4kTExsbGNpKcXC5nkMshnU7zjo4OBgDbt/f1WpYNrY0lpazXarVZAJicnNwI0EZHRxURicOHD89feeWV75qenr4nEo1aACNjtCHS4BxiZWVFNhquFW6PfgoA3X777eHZ2Vkrjzyr1+tq165dKpV6QMRiMfJL/excAjjLEO7YsYMAoOFJqjXqhgshDBSYAIwxpqurS7iuu/j8r3+9b+/e6+8iIsEYM4yxrZ6F5ZqSN2trawQASsmdWmtwzpiUcunZZ5+t+MIK7A/5SNDZbJYTkbdnz1UHf/WrX/2JZVk8EmnjxmgyxkBwztfX16nm1RgAfPWrX3X9ho2ORCKUzyepefK9G/O+lhHcRELYWnCLgxHAAUPGdMW7+Gql8vOfHXv67WMf+MCjExMTFmNMA034Hz161JqYmLCINqJOAmBGRkZ89WIDnudCCAEiM5fL5Wot926iXC5nGGMgIjE6mv7Sc889c0O9XluwQ4KUckkrBWU0C4VCoeCZTCbD0+m0aGauOdP8m9fpdFoAwKt1hs5BBkxwcMFgDExbOMScdefXd//VX6fvvvvutWxTV1WTMWK+IDZUwB8jAIxzrgHAGD1YrzcQbY9gbW2t5N96rqBsgxhjenx8PHTTTTc98N3vfuezO96447tKK02agZMB+cAeGxuzZmZm6MCBA9pxHKtZz0gSkKNCoaAymYzYmg6ftRYA/sILL7DmwmAMBhwcNrMpGoqymrN++u67716bmJiwcmeMHWeM0SMPPfLW2ZdP3ndi5uS9x584fgVjjLLZrOULA/v27Qu3tYU7lDQACQibn2pZt7VMD/87b/ldj4+PCyHCr0hpQMSZhgERQfg3lUolc+DAAZ3L5RgA5PN5ymTONHzy+SRtjQS3CoMBoNOnTzfhwjkBBM4YBBdg4LAsSxARGxkZMUAT9rlcjp577rk3DV2+oxCNRN8X64h9ZPtA32Ozs7P9U1NTdPToUQsADh8+3KeU7pdSGq01pHQXAKBYLG7UKDOZDM9mszyT2fBKLIDv2NiYZppZjAsYAppxyGZOfPdrisUDenh42J6cnGzJcHPnbY5u1AIA4MILL9QAwATTm+5qiinw1wwA81Nc1/XU7T3bwm3lcsklMrjwov6+uRNzn8nn8//5jjvusABg27ZtCdu2Q1orLZULo/AcAPgGkgCYfD7fWqJnAKhQKOiRkREBAJppY7SGMRrGNBFgTDOFGRkZMY7j+I2cx1Auh2jnzp262fbLAMiL38oGBF4AaEJ3C21Snc997nMuANi2tbu2vk4gY4OBKmtVssKhtwKA53kEANXq+uXd3RdAKc841YqYm5t7BQDK5XJrfyJYIxgjAAiKKQAAQ9BSQxt91v6CFl4gRL/nyYA80un0Od3geckYwwIhBJ+tFIwxBttozZSSUEZCGcm42Ox1OBcXEBE86Yp6o+YZY04DwORkJoD6+WwAJicnWXMOzppr0qbTB4AjR45QJpPZeNcBAGUyGZZOp4N6hjqfAM5phYmImomOhlJqA3JbbhEAsLJaeZFgtJSeVlobxrlZXlktAUB7e3szFeVsSCkFoxWXyltbWztZaW4cBGRYoVBQONOyN2hJzwMEMM0YmTNb1lqD/E2NjY1xv/GLQJhBYdd/4LwIOFdWCABkjIHWukXSjPn6DwB47LHHGABUV6v3ahihoW1GsJnm3KvJbwGAlJIAoKMj2meMgmWFoSROfvzjt1XOuMqN9xI2NWi3bkgpJZgBjDJQSvmZqGZA8yUO/xkqFDZK92gKNgtgcyB0Pt+7MW6MYcaYjdM3xkBK5fm+nQPA6Oioymaz/IYb9n/3hRd+lSPCOoDK7Mtz/+Haa9N/T0T88ssv9wCg0Whc0Wg0IISAUuoUzkAVaHqAVnd41h6JiMOyPKk1PCU3EKm1PktQzUp2xg+wsjydfuycBZGtjG/qFmmt4XkeXNeF53lsbW2Nuro6LxkfH9/OGFPHjx+34ZfTGWN43/tuPOI4eMPi4uLl73xn+r8xxsAYI8YYJZPJEBF1K6WCTc8BGwhiaL64YXzoAi3uz0ecYIyZaDRyCXEGQ4ZAZLaqZQYZnkql7Hw+r9PpEkun0xaQQ7lc5ngVFQgEcpaCB/DX2nDHccgYffmOHTueePDBB//V7t275fHjxzcCnfHxcXHddVcv7t+/vzw+Pi6ICH4fEn/2Z392gZSy13Vd0lqjXq/PAcALL7zA/L5D0GRR8FWgUCiYbDbLjxw5Yo+NjXk/Lfz03yV6LvjL1cqqMYa00tqr1+swxmzsO4+8KRaLG8/7qmCmpqY8AOZ1eQHOuZFSQmttlFKGMfDl5Vf06urqUH//wGOPP/74e30h2ADY2NiYJiLWmhUeOXIEALB9+/Y457xdKWW01gAwCzRdbrPukN2qkkRE+MIXvmByuZz36D8++sWOaOyvF0vlkCel8rSUWmsppdRE1BqvEJrWX+BMhrsRaL0uAQAcSmtjjJHGkNLakBAWr9Vqulxe7IjHu+8rFJ78/O7du6V/2jyAfDBD8K6Act03RqPtzBgytVodjYZaAFpjgFxrrxJBhvme97wneuypn32rIx7/k1On55UxSoGMJjIaZJTW2mxSAZ9xX50stBR5ANDrSoakdHXUjnGt4TKQxQBophnnQkjp0amTp+jiiwf/68+Lz1zGGPv3ANT4+LhorQkEpDW/1GiCMeCuq7SlwqeAjTrAJjp+/LjNGJP33Xffhb29fd9ljF996vS8KwRxrY3WWnuktTKMDGOCiBAOnm15syVQp030agWRDRoZGdFExGq12sOlUvnRaDSyjXGjwKCklFIppRnjDACbnX1ZWSH7U88888wD2Wx229jYmJ6YmAgEzYLEypPukNISnENorZdeem5qCWgGL61rE5G1e/du+ZOf/ORtiUTfsUajcfXphVMuYKC1UcYYQ0TEGBnGuC2ECFUqq/cCwM6dO7eW+M7i97dSgQDCN9100yv333/fe2o1527bFu1aSxdgyhhDSikCiFkWt06ceFkZY/aOjX2o8MMf/vCK0dFRNT4+LgDQJz/5SQMABkgoJcE5A+co3Zq7da11LQA4evSozRhTx449fYuwQj9eW1u7uFqt1oRgzBgtjTGaiJRSqsaYiHAu7LW1tT/84Ac/+BfZbJaPjY219jVaW/+bpHJOnnGOoIOIGOecmhb+O4dDodCXiZhijBnOeYhzwTkXjHNAKam6t11gXdB1weLC/OmPjV4/+lBQ6GCM0SOPFp5ikHssYaPRaPxo79697yIizhgz/lqcMWb+6Z9+lhNC/OnCbxbJaGOIpDJGKWOMR8SZMdoFEOecz3med8vNN9/89PnU7lx0PhU4ZyTIGCNjDGsu8KE719aqGWPMGoA2KaXjum5dSlcqJUkIZlVWVnVpsdTX29v794UfF94RzHv06FFbQ1/gSQnGCEKIWeCMgRwfHxeMMfOTRx7785Ad+tO5UyfXFWnFm9UgIjLakNZEpmFZVh+AJyqVyujNN9/89MTEhHUO5re2/jfGX6smeNZDjDEK9PqWWz72/ZMzJ0eVJ5+3LTtORC5RMy03BuCci7X1qlfz6lwZtTfwCB0dHdu8WqNXK0NCWHBddxZoxgAAkMlkDAA0VGNfubxoBGOCGQ2lXU8p5WlNHshioVB4e6Ph/eU999zznk984hOnWyvQr8ZDK6+/TWPknDQ6OqomJiasz33+c7+cnTyRbtQaD0cj0W4iKGNIam200orAwNfXHfKUJ1se77Mtq5MMyUbDhVJqGticdgOAK6VDIK61MkZraYzyiMhlTNhCWB2O0/j8zTd/+FMPP/yw6+v8+WB/XlS/zprg2ULw9W0plUrdcPjw57/W3t7+KSJTN8Z4xpgwY8xorS3GzqAtFosNhEIh1mjUVKPRsLXWi8CmOgAA+LmGhNbaY4wxY8hjjMcArFUqK7ccPHjw/vHxcZHJZExgO85Brd2ts4TwOgOhDdqA1djYmM5ms/z48ePqIx/50B+trq7eRkQhP3BRAIIUegMBRPxiP5kyAPf6+/v9OsDZMQARgXPOjDGuZVndRPTS4uLytQcPHrw/0PdWz4FXN+xbP2cJ4FWrsa37ar1oLVd/9KO3/I+VleUbtdZr2ug2Y0x9qwAYw6VSShhDDNALKysri/48m+bVWpOUUhtjVCgU6gX4AydPzqU/85lPTk60VKBbSKDZvrdbor6te96U42wVwHl1voXOW0NgjOmJiQnr4MGD9zcajVEl1c+VUrFareZxzjfmVkoOua5LRIYTYWn//v3Vc63fRAg0A4t5nvflm256/42HDx9ePo+xA5rFEwr+o6WFtr73tDH2u6jAqwopsAu33HLL1Pr6+julp+/v6uwOGYPVM9uksMU5s0NtEVeaOcDP7X06cuQIAwDLcFuQsJ1155NjY2P/kYjYaxg7wK/6+GHvuU59U7v/dzGCr4mSsbEx7RvHVQAf+P53v/8BbvPHg98XTizcakft/66ZNtWqennrvEeOHKFcLofKysp/akilD33m0ONBbICz31rZytT5jOHr5uOfTX55619int/VWL8m/bPc4GtR0AYbHx/nvqvaaLf79X60jm8lP39A0Gv8Pb06nS/cbf39LPq/Bq3fgbb2As9H53Ld5430/n+j1zrF1vt+m8P7f+mA/8VpU0T3Kvf8nn5Pv6ff0+/pfPR/AAPtFlLmbe3BAAAAAElFTkSuQmCC">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-:root{
-  --silver:#c8c8c8;
-  --silver-bright:#efefef;
-  --bg:#06060a;
-}
+  <title>SoftwareDevCo</title>
 
-html,body{
-  height:100%;
-  background:var(--bg);
-  color:white;
-  font-family:'Montserrat',sans-serif;
-  overflow:hidden;
-}
+  <meta
+    name="description"
+    content="SoftwareDevCo builds modern software, automation and digital solutions."
+  >
 
-body::before{
-  content:'';
-  position:fixed;
-  inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity:0.032;
-  pointer-events:none;
-  z-index:0;
-}
+  <link
+    rel="preload"
+    href="./assets/logo-metal-premium.png"
+    as="image"
+  >
 
-body::after{
-  content:'';
-  position:fixed;
-  inset:0;
-  background:radial-gradient(ellipse 65% 50% at 50% 52%, rgba(180,180,200,0.05) 0%, transparent 70%);
-  pointer-events:none;
-  z-index:0;
-}
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
-.grid{
-  position:fixed;
-  inset:0;
-  z-index:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);
-  background-size:60px 60px;
-  mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,black 20%,transparent 100%);
-}
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
-.wrap{
-  position:relative;
-  z-index:1;
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:20px 20px 16px;
-}
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
-.brand{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:5px;
-  margin-bottom:18px;
-}
+  <link
+    rel="stylesheet"
+    href="./css/style.css"
+  >
 
-.brand-eyebrow{
-  font-size:8px;
-  letter-spacing:5px;
-  color:#383838;
-  font-weight:300;
-}
+  <link
+    rel="stylesheet"
+    href="./css/loader.css"
+  >
 
-.brand-name{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(20px,3vw,32px);
-  font-weight:300;
-  letter-spacing:7px;
-  color:var(--silver-bright);
-  line-height:1;
-}
+  <link
+    rel="stylesheet"
+    href="./css/navigation.css"
+  >
 
-.brand-rule{
-  width:36px;
-  height:1px;
-  background:linear-gradient(90deg,transparent,rgba(200,200,200,0.4),transparent);
-  margin:3px 0;
-}
+  <link
+    rel="stylesheet"
+    href="./css/responsive.css"
+  >
 
-.brand-tagline{
-  font-size:7.5px;
-  letter-spacing:4px;
-  color:#2e2e2e;
-  font-weight:300;
-}
-
-.scene{
-  width:min(86vw,540px);
-  aspect-ratio:1.586/1;
-  position:relative;
-}
-
-.card{
-  position:relative;
-  width:100%;
-  height:100%;
-  cursor:pointer;
-  filter:drop-shadow(0 28px 55px rgba(0,0,0,.85)) drop-shadow(0 0 35px rgba(160,160,180,.06));
-}
-
-.card img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
-  border-radius:22px;
-}
-
-.overlay{
-  position:absolute;
-  inset:0;
-  z-index:5;
-  display:none;
-}
-
-.overlay.active{
-  display:block;
-}
-
-.tap{
-  position:absolute;
-  display:block;
-  border-radius:6px;
-}
-
-.tap-phone{left:19%;top:37%;width:32%;height:10%;}
-.tap-email{left:19%;top:48%;width:40%;height:10%;}
-.tap-save{left:19%;top:68%;width:44%;height:11%;}
-
-.hint{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-top:14px;
-  opacity:0.45;
-}
-
-.hint-line{
-  width:24px;
-  height:1px;
-  background:rgba(255,255,255,0.2);
-}
-
-.hint-text{
-  font-size:7.5px;
-  letter-spacing:4px;
-  color:#555;
-  font-weight:300;
-}
-
-.cta-row{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-top:16px;
-}
-
-.cta{
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-  padding:9px 22px;
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:2px;
-  font-size:8px;
-  letter-spacing:3.5px;
-  color:var(--silver);
-  text-decoration:none;
-  font-weight:400;
-  background:rgba(255,255,255,0.03);
-  transition:all .3s ease;
-  backdrop-filter:blur(4px);
-  white-space:nowrap;
-}
-
-.cta-divider{
-  width:1px;
-  height:24px;
-  background:rgba(255,255,255,0.1);
-}
-
-@media(max-width:480px){
-  .brand-name{font-size:18px;letter-spacing:5px;}
-  .brand{margin-bottom:12px;}
-  .scene{width:94vw;}
-  .hint,.cta-row{margin-top:10px;}
-  .cta{padding:8px 15px;font-size:7.5px;}
-}
-</style>
+  <link
+    rel="stylesheet"
+    href="./css/project-modal.css"
+  >
 </head>
-<body>
 
-<div class="grid"></div>
+<body class="is-loading">
 
-<div class="wrap">
+  <div
+    class="site-loader"
+    id="loader"
+    aria-label="Loading SoftwareDevCo"
+  >
 
-  <div class="brand">
-    <span class="brand-eyebrow">United Kingdom</span>
-    <h1 class="brand-name">SOFTWARE DEV CO</h1>
-    <div class="brand-rule"></div>
-    <span class="brand-tagline">WE BUILD WHAT'S NEXT</span>
-  </div>
+    <div
+      class="loader-logo-shell"
+      id="loaderLogo"
+    >
 
-  <div class="scene">
-    <div class="card" id="card">
-      <img id="cardImage" src="front.png" alt="Business Card">
+      <img
+        src="./assets/master_final_render.png"
+        class="loader-logo loader-logo-base"
+        alt=""
+        aria-hidden="true"
+      >
 
-      <div class="overlay" id="backOverlay">
-        <a class="tap tap-phone" href="https://wa.me/447375074911" target="_blank" aria-label="WhatsApp"></a>
-        <a class="tap tap-email" href="mailto:contact@softwaredevco.co.uk" aria-label="Email"></a>
-        <a class="tap tap-save" href="softwaredevco.vcf" download aria-label="Save Contact"></a>
+      <div class="loader-fill">
+
+        <img
+          src="./assets/master_final_render.png"
+          class="loader-logo loader-logo-metal"
+          alt="SoftwareDevCo"
+        >
+
       </div>
+
+      <div
+        class="loader-energy"
+        aria-hidden="true"
+      ></div>
+
     </div>
+
   </div>
 
-  <div class="hint">
-    <div class="hint-line"></div>
-    <span class="hint-text">TAP CARD TO FLIP</span>
-    <div class="hint-line"></div>
+  <main
+    class="site"
+    id="site"
+  >
+
+    <header class="top-nav">
+
+      <nav
+        class="nav-left"
+        aria-label="Primary navigation"
+      >
+
+        <a href="#company">
+          Our Company
+        </a>
+
+        <a href="#expertise">
+          Expertise
+        </a>
+
+      </nav>
+
+      <a
+        href="#company"
+        class="center-logo"
+        id="navLogo"
+        aria-label="SoftwareDevCo home"
+      >
+
+        <img
+          src="./assets/logo-nav.svg"
+          alt="SoftwareDevCo"
+        >
+
+      </a>
+
+      <nav
+        class="nav-right"
+        aria-label="Project navigation"
+      >
+
+        <a
+          href="#project-options"
+          class="start-project"
+          data-project-modal-open
+          aria-haspopup="dialog"
+          aria-controls="projectModal"
+        >
+          Start a Project
+          <span aria-hidden="true">↗</span>
+        </a>
+
+      </nav>
+
+    </header>
+
+    <section
+      class="hero"
+      id="company"
+    >
+
+      <div
+        class="grid-lines"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="curve curve-one"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="curve curve-two"
+        aria-hidden="true"
+      ></div>
+
+      <div class="hero-inner">
+
+        <h1
+          class="hero-title reveal"
+          style="--d: 0.2s;"
+        >
+          <span class="line">
+            Engineering
+          </span>
+
+          <span class="line">
+            what comes next.
+          </span>
+        </h1>
+
+        <p
+          class="hero-sub reveal"
+          style="--d: 0.35s;"
+        >
+          Modern software, automation and digital solutions engineered
+          for organisations ready to move forward.
+        </p>
+
+        <div
+          class="hero-actions reveal"
+          style="--d: 0.5s;"
+        >
+
+          <a
+            href="#project-options"
+            class="btn-primary"
+            data-project-modal-open
+            aria-haspopup="dialog"
+            aria-controls="projectModal"
+          >
+            Work With Us
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <a
+            href="#expertise"
+            class="btn-ghost"
+          >
+            Our Expertise
+          </a>
+
+        </div>
+
+      </div>
+
+      <div
+        class="hero-footer reveal"
+        style="--d: 0.65s;"
+      >
+
+        <span class="mono-tag">
+          We Build What's Next
+        </span>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <div
+    class="project-modal"
+    id="projectModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="projectModalTitle"
+    aria-describedby="projectModalDescription"
+    aria-hidden="true"
+  >
+
+    <button
+      class="project-modal-backdrop"
+      type="button"
+      data-project-modal-close
+      aria-label="Close project options"
+    ></button>
+
+    <div
+      class="project-modal-panel"
+      role="document"
+    >
+
+      <button
+        class="project-modal-close"
+        type="button"
+        data-project-modal-close
+        aria-label="Close project options"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <div class="project-modal-content">
+
+        <p class="project-modal-eyebrow">
+          Start a Project
+        </p>
+
+        <h2
+          class="project-modal-title"
+          id="projectModalTitle"
+        >
+          Let’s build what’s next.
+        </h2>
+
+        <p
+          class="project-modal-description"
+          id="projectModalDescription"
+        >
+          We’d love to hear about your idea, business or product.
+          Choose how you’d like to start the conversation.
+        </p>
+
+        <div class="project-modal-options">
+
+          <a
+            href="./contact.html"
+            class="project-option"
+          >
+
+            <span class="project-option-number">
+            </span>
+
+            <span
+              class="project-option-icon"
+              aria-hidden="true"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                focusable="false"
+              >
+                <rect
+                  x="3"
+                  y="5"
+                  width="18"
+                  height="14"
+                  rx="1.5"
+                ></rect>
+
+                <path d="m4 7 8 6 8-6"></path>
+              </svg>
+
+            </span>
+
+            <span class="project-option-content">
+
+              <span class="project-option-title">
+                Email
+              </span>
+
+              <span class="project-option-description">
+                Share the details of your project using our enquiry form.
+              </span>
+
+            </span>
+
+            <span
+              class="project-option-arrow"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+
+          </a>
+
+          <a
+            href="https://wa.me/447375074911?text=Hello%20Luiz%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20SoftwareDevCo."
+            class="project-option"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <span class="project-option-number">
+            </span>
+
+            <span
+              class="project-option-icon"
+              aria-hidden="true"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+                focusable="false"
+              >
+                <path
+                  d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"
+                ></path>
+
+                <path
+                  d="M9 8.5c.4 2.2 2.1 4 4.5 4.7"
+                ></path>
+
+                <path
+                  d="m8.8 8.2.9-.5 1.1 1.8-.7.7"
+                ></path>
+
+                <path
+                  d="m13.4 13.1.8-.8 1.8 1-.4 1"
+                ></path>
+              </svg>
+
+            </span>
+
+            <span class="project-option-content">
+
+              <span class="project-option-title">
+                WhatsApp
+              </span>
+
+              <span class="project-option-description">
+                Start a quick conversation with us directly on WhatsApp.
+              </span>
+
+            </span>
+
+            <span
+              class="project-option-arrow"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+
+          </a>
+
+        </div>
+
+        <div class="project-modal-email">
+
+          <span>
+            Prefer to contact us directly?
+          </span>
+
+          <a href="mailto:contact@softwaredevco.co.uk">
+            contact@softwaredevco.co.uk
+            <span aria-hidden="true">↗</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="cta-row">
-    <a class="cta" href="https://wa.me/447375074911" target="_blank">WHATSAPP</a>
-    <div class="cta-divider"></div>
-    <a class="cta" href="mailto:contact@softwaredevco.co.uk">EMAIL</a>
-  </div>
-
-</div>
-
-<script>
-const card = document.getElementById("card");
-const cardImage = document.getElementById("cardImage");
-const backOverlay = document.getElementById("backOverlay");
-
-let showingFront = true;
-
-card.addEventListener("click", function(e) {
-  if (e.target.tagName.toLowerCase() === "a") return;
-
-  if (showingFront) {
-    cardImage.src = "back.png";
-    backOverlay.classList.add("active");
-    showingFront = false;
-  } else {
-    cardImage.src = "front.png";
-    backOverlay.classList.remove("active");
-    showingFront = true;
-  }
-});
-</script>
+  <script src="./js/main.js"></script>
+  <script src="./js/project-modal.js"></script>
 
 </body>
+
 </html>

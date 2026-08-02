@@ -1,0 +1,208 @@
+/* ============================================================
+   SoftwareDevCo — Clean Logo Loader
+
+   Sequence:
+   1. Faint grey logo is visible immediately.
+   2. Metallic logo fills once from bottom to top.
+   3. Logo immediately moves into the navigation.
+   4. Loader fades away.
+
+   No glow.
+   No reflection sweep.
+   No second-direction animation.
+   No pause after charging.
+   ============================================================ */
+
+
+/* ============================================================
+   LOADER SCREEN
+   ============================================================ */
+
+.site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: grid;
+  place-items: center;
+
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  overflow: hidden;
+
+  background: #000000;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.3s;
+}
+
+.site-loader.loader-complete {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   LOGO CONTAINER
+   ============================================================ */
+
+.loader-logo-shell {
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+
+  width: clamp(200px, 21vw, 320px);
+  aspect-ratio: 1.34 / 1;
+
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+
+  isolation: isolate;
+
+  will-change:
+    top,
+    left,
+    width,
+    transform;
+}
+
+
+/* Added by JavaScript as soon as charging completes */
+
+.loader-logo-shell.is-moving {
+  transition:
+    top 0.65s cubic-bezier(0.76, 0, 0.24, 1),
+    left 0.65s cubic-bezier(0.76, 0, 0.24, 1),
+    width 0.65s cubic-bezier(0.76, 0, 0.24, 1),
+    transform 0.65s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+
+/* Both copies occupy the same exact position */
+
+.loader-logo {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   FAINT GREY LOGO
+   ============================================================ */
+
+.loader-logo-base {
+  z-index: 1;
+
+  opacity: 0.42;
+
+  filter:
+    grayscale(1)
+    saturate(0)
+    brightness(0.52)
+    contrast(0.98);
+}
+
+
+/* ============================================================
+   BOTTOM-TO-TOP METALLIC FILL
+   ============================================================ */
+
+.loader-fill {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  overflow: hidden;
+  clip-path: inset(100% 0 0 0);
+
+  animation:
+    chargeLogoBottomToTop
+    1.35s
+    linear
+    forwards;
+}
+
+@keyframes chargeLogoBottomToTop {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Disable all additional loading movements */
+.loader-energy,
+.loader-logo-shell::after {
+  display: none !important;
+}
+
+
+/* Hide the old secondary effect if it remains in index.html */
+
+.loader-energy {
+  display: none;
+}
+
+
+/* ============================================================
+   SINGLE CHARGING ANIMATION
+   ============================================================ */
+
+@keyframes chargeLogoBottomToTop {
+  0% {
+    clip-path: inset(100% 0 0 0);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+  .loader-logo-shell {
+    width: clamp(175px, 53vw, 245px);
+  }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-logo-shell,
+  .loader-fill {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .loader-fill {
+    clip-path: inset(0);
+  }
+}

@@ -1,0 +1,22 @@
+<svg width="338" height="238" viewBox="161 102 199 142" xmlns="http://www.w3.org/2000/svg">
+  <title>Logo — Navigation</title>
+
+  <defs>
+    <path id="geo-left"  d="M230,117 L176,148 L176,196 L229,227 L235,228 L235,206 L197,183 L197,159 L235,135 L236,119 Z"/>
+    <path id="geo-slash" d="M277,117 L265,117 L263,121 L247,224 L249,228 L259,228 L261,226 L277,128 Z"/>
+    <circle id="geo-dot" cx="230.5" cy="172" r="11.5"/>
+    <path id="geo-right" d="M292,117 L287,117 L286,133 L290,138 L325,159 L325,184 L287,207 L286,227 L288,229 L337,202 L345,195 L344,147 Z"/>
+
+    <!-- Light, high-contrast finish: minimal contrast steps, no grain, no shadow, reads clean at small sizes -->
+    <linearGradient id="navSteel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="45%"  stop-color="#eeeeee"/>
+      <stop offset="100%" stop-color="#d6d6d6"/>
+    </linearGradient>
+  </defs>
+
+  <g id="left-bracket"><use href="#geo-left" fill="url(#navSteel)"/></g>
+  <g id="slash"><use href="#geo-slash" fill="url(#navSteel)"/></g>
+  <g id="dot"><use href="#geo-dot" fill="url(#navSteel)"/></g>
+  <g id="right-bracket"><use href="#geo-right" fill="url(#navSteel)"/></g>
+</svg>
